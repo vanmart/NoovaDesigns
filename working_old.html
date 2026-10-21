@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
         /* Arranca "a oscuras" y la luz se enciende sola; sin JS o con movimiento reducido queda encendida.
-                   Propuesta de luminaria: ?luz=barra | anillo | riel (por defecto barra) */
+                                   Propuesta de luminaria: ?luz=barra | anillo | riel (por defecto barra) */
         var _m = new URLSearchParams(location.search).get('luz');
         document.documentElement.dataset.luz = ['barra', 'anillo', 'riel'].indexOf(_m) > -1 ? _m : 'barra';
         if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('off');
@@ -515,6 +515,7 @@
                 <a href="https://www.instagram.com/noova.domotica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de NOOVA (se abre en una pestaña nueva)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>                    Instagram
                 </a>
+                <a href="https://www.youtube.com/@noovasmartliving" target="_blank" rel="noopener noreferrer" aria-label="YouTube de NOOVA (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2 L15.2 12 L10 14.8 Z" fill="currentColor" stroke="none"/></svg>YouTube</a>
             </nav>
             <!-- Contacto: activar cuando el número esté confirmado
     <a href="https://wa.me/57XXXXXXXXXX?text=Hola%2C%20NOOVA.">Conversemos sobre tu espacio</a> -->
