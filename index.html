@@ -1,215 +1,568 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NOOVA Designs | Muy pronto</title>
-<meta name="description" content="Estamos construyendo nuestro nuevo espacio. Diseño, iluminación y tecnología para transformar tu hogar.">
-<meta name="theme-color" content="#08080B">
-<meta property="og:title" content="NOOVA Designs | Muy pronto">
-<meta property="og:description" content="Diseñamos espacios que se ven y se sienten diferentes.">
-<meta property="og:type" content="website">
-<!-- Cuando haya URL e imagen real: <meta property="og:image" content="https://DOMINIO/og.jpg"> -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<script>
-/* La página arranca "a oscuras" y la lámpara se enciende sola; sin JS o con movimiento reducido queda encendida */
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('off');
-</script>
-<style>
-@property --lit{syntax:'<number>';inherits:true;initial-value:1}
-:root{
-  --bg:#08080B; --surface:#14141B; --text:#F4F0EB; --text-2:#B7B3C1; --dim:#8A8696;
-  --violet:#8B5CF6; --fucsia:#E447B3; --border:#30303A;
-  --grad:linear-gradient(110deg,var(--violet),var(--fucsia));
-  --lit:1;                 /* 0 = apagada, 1 = encendida */
-  --x:62vw; --y:60vh;      /* centro del charco de luz (viewport) */
-  --hx:30%; --hy:50%;      /* centro de la luz dentro del titular */
-  --s:1; --pad:64px;
-  transition:--lit 1.2s ease;
-}
-:root.off{--lit:0}
-*{box-sizing:border-box;margin:0}
-html,body{height:100%}
-body{
-  background:var(--bg); color:var(--text);
-  font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:17px; line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased;
-}
-.glow{
-  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:var(--lit);
-  background:
-    radial-gradient(520px circle at var(--x) var(--y), rgba(228,71,179,.10), transparent 70%),
-    radial-gradient(900px circle at var(--x) var(--y), rgba(139,92,246,.11), transparent 70%);
-}
-/* Lámpara colgante: se inclina hacia el cursor y su cono de luz la acompaña */
-.lamp{position:fixed; top:0; left:72vw; width:0; height:0; z-index:1; pointer-events:none}
-.swing{position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform}
-.scale{position:absolute; left:0; top:0; transform:scale(var(--s)); transform-origin:0 0}
-.lampsvg{position:absolute; left:-120px; top:0; width:240px; height:220px; overflow:visible}
-.lamp-btn{
-  position:absolute; left:-62px; top:128px; width:124px; height:74px;
-  background:transparent; border:0; border-radius:8px; cursor:pointer; pointer-events:auto;
-}
-.lamp-btn:focus-visible{outline:2px solid var(--violet); outline-offset:3px}
-.page{
-  position:relative; z-index:1; min-height:100svh;
-  display:flex; flex-direction:column;
-  padding:max(28px,env(safe-area-inset-top)) var(--pad) max(28px,env(safe-area-inset-bottom));
-  max-width:1280px; margin:0 auto;
-}
-.brand{font-weight:500; font-size:20px; letter-spacing:.42em; color:var(--text)}
-.brand span{color:var(--text-2); letter-spacing:.3em; font-size:12px; margin-left:.9em}
-main{flex:1; display:flex; flex-direction:column; justify-content:flex-end; padding:15vh 0 56px}
-h1{font-weight:500; line-height:1.04; letter-spacing:-.02em; font-size:clamp(38px,7.2vw,84px); max-width:13ch; color:var(--text)}
-@supports (background-clip:text) or (-webkit-background-clip:text){
-  h1{
-    background:radial-gradient(circle calc(440px * var(--lit) + 1px) at var(--hx) var(--hy),#F4F0EB 0%,#C9C4CF 40%,var(--dim) 100%);
-    -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
-  }
-}
-.lead{margin-top:28px; max-width:56ch; color:var(--text-2); font-size:clamp(16px,1.6vw,19px); line-height:1.65}
-footer{padding-top:24px; position:relative}
-.line{position:absolute; top:0; left:0; height:1px; width:100%; background:var(--grad); transform-origin:left; opacity:.9}
-footer p{color:var(--text-2); font-size:15px}
-footer strong{color:var(--text); font-weight:600; letter-spacing:.18em}
-.social{display:flex; justify-content:flex-start; flex-wrap:wrap; gap:12px; margin-top:32px}
-footer .credit{margin-top:28px; text-align:center; font-size:13px; letter-spacing:.06em; color:var(--dim)}
-.social a{
-  display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 22px;
-  color:var(--text); text-decoration:none; font-size:15px; font-weight:500; letter-spacing:.04em;
-  background:rgba(20,20,27,.6); border:1px solid var(--border); border-radius:8px;
-  transition:border-color .2s ease, background .2s ease, transform .2s ease;
-}
-.social a:hover{border-color:var(--fucsia); background:var(--surface)}
-.social a:active{transform:scale(.98)}
-.social a:focus-visible{outline:2px solid var(--violet); outline-offset:3px}
-.social svg{width:20px; height:20px; flex:none}
-
-@media (prefers-reduced-motion:no-preference){
-  .line{animation:draw 1.6s cubic-bezier(.2,.7,.2,1) both}
-  .drop{animation:drop 1.3s cubic-bezier(.2,.8,.2,1) .15s both}
-  .brand,h1,.lead,footer p{animation:rise .9s ease both}
-  .brand{animation-delay:.2s} h1{animation-delay:.9s} .lead{animation-delay:1.25s} footer p{animation-delay:1.5s} .social{animation:rise .9s ease 1.45s both}
-  @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-  @keyframes drop{from{transform:translateY(-130%)}to{transform:none}}
-}
-@media (max-width:1023px){:root{--pad:32px} main{padding-top:12vh}}
-@media (max-width:767px){:root{--pad:20px} .brand{font-size:17px} .brand span{display:none} main{padding-bottom:40px}}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>NOOVA Designs | Muy pronto</title>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="description" content="Estamos construyendo nuestro nuevo espacio. Diseño, iluminación y tecnología para transformar tu hogar.">
+    <meta name="theme-color" content="#08080B">
+    <meta property="og:title" content="NOOVA Designs | Muy pronto">
+    <meta property="og:description" content="Diseñamos espacios que se ven y se sienten diferentes.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        var _m = 'riel';
+        document.documentElement.dataset.luz = 'riel';
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('off');
+    </script>
+    <style>
+        @property --lit {
+            syntax: '<number>';
+            inherits: true;
+            initial-value: 1
+        }
+        
+         :root {
+            --bg: #08080B;
+            --surface: #14141B;
+            --text: #F4F0EB;
+            --text-2: #B7B3C1;
+            --dim: #8A8696;
+            --violet: #8B5CF6;
+            --fucsia: #E447B3;
+            --border: #30303A;
+            --grad: linear-gradient(110deg, var(--violet), var(--fucsia));
+            --lit: 1;
+            --x: 62vw;
+            --y: 60vh;
+            --hx: 30%;
+            --hy: 50%;
+            --s: 1;
+            --pad: 64px;
+            transition: --lit 1.2s ease;
+        }
+        
+         :root.off {
+            --lit: 0
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0
+        }
+        
+        html,
+        body {
+            height: 100%
+        }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .glow {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: var(--lit);
+            background: radial-gradient(520px circle at var(--x) var(--y), rgba(228, 71, 179, .10), transparent 70%), radial-gradient(900px circle at var(--x) var(--y), rgba(139, 92, 246, .11), transparent 70%);
+        }
+        
+        .lamp {
+            position: fixed;
+            top: 0;
+            left: 62vw;
+            width: 0;
+            height: 0;
+            z-index: 1;
+            pointer-events: none
+        }
+        
+        .fx {
+            position: absolute;
+            left: 0;
+            top: 0
+        }
+        
+        .swing {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0;
+            will-change: transform
+        }
+        
+        .scale {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: scale(var(--s));
+            transform-origin: 0 0
+        }
+        
+        .fxsvg {
+            position: absolute;
+            top: 0;
+            overflow: visible
+        }
+        
+        .lamp-btn {
+            position: absolute;
+            background: transparent;
+            border: 0;
+            border-radius: 8px;
+            cursor: pointer;
+            pointer-events: auto
+        }
+        
+        .lamp-btn:focus-visible {
+            outline: 2px solid var(--violet);
+            outline-offset: 3px
+        }
+        
+        .rail {
+            position: absolute;
+            top: 0;
+            height: 6px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            border-radius: 0 0 3px 3px
+        }
+        
+        .page {
+            position: relative;
+            z-index: 2;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            padding: max(28px, env(safe-area-inset-top)) var(--pad) max(28px, env(safe-area-inset-bottom));
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .brand {
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: .42em;
+            color: var(--text)
+        }
+        
+        .brand span {
+            color: var(--text-2);
+            letter-spacing: .3em;
+            font-size: 12px;
+            margin-left: .9em
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 15vh 0 56px
+        }
+        
+        h1 {
+            font-weight: 500;
+            line-height: 1.04;
+            letter-spacing: -.02em;
+            font-size: clamp(38px, 7.2vw, 84px);
+            max-width: 13ch;
+            color: var(--text)
+        }
+        
+        @supports (background-clip:text) or (-webkit-background-clip:text) {
+            h1 {
+                background: radial-gradient(circle calc(440px * var(--lit) + 1px) at var(--hx) var(--hy), #F4F0EB 0%, #C9C4CF 40%, var(--dim) 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        
+        .lead {
+            margin-top: 28px;
+            max-width: 56ch;
+            color: var(--text-2);
+            font-size: clamp(16px, 1.6vw, 19px);
+            line-height: 1.65
+        }
+        
+        .social {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px
+        }
+        
+        .social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 0 22px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: .04em;
+            background: rgba(20, 20, 27, .6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: border-color .2s ease, background .2s ease, transform .2s ease;
+        }
+        
+        .social a:hover {
+            border-color: var(--fucsia);
+            background: var(--surface)
+        }
+        
+        .social a:active {
+            transform: scale(.98)
+        }
+        
+        .social a:focus-visible {
+            outline: 2px solid var(--violet);
+            outline-offset: 3px
+        }
+        
+        .social svg {
+            width: 20px;
+            height: 20px;
+            flex: none
+        }
+        
+        footer {
+            padding-top: 24px;
+            position: relative
+        }
+        
+        .line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background: var(--grad);
+            transform-origin: left;
+            opacity: .9
+        }
+        
+        footer p {
+            color: var(--text-2);
+            font-size: 15px
+        }
+        
+        footer strong {
+            color: var(--text);
+            font-weight: 600;
+            letter-spacing: .18em
+        }
+        
+        footer .credit {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: .06em;
+            color: var(--dim)
+        }
+        
+        @media (prefers-reduced-motion:no-preference) {
+            .line {
+                animation: draw 1.6s cubic-bezier(.2, .7, .2, 1) both
+            }
+            .fx {
+                animation: drop 1.3s cubic-bezier(.2, .8, .2, 1) .15s both
+            }
+            .brand,
+            h1,
+            .lead,
+            footer p {
+                animation: rise .9s ease both
+            }
+            .brand {
+                animation-delay: .2s
+            }
+            h1 {
+                animation-delay: .9s
+            }
+            .lead {
+                animation-delay: 1.25s
+            }
+            .social {
+                animation: rise .9s ease 1.45s both
+            }
+            footer p {
+                animation-delay: 1.5s
+            }
+            @keyframes draw {
+                from {
+                    transform: scaleX(0)
+                }
+                to {
+                    transform: scaleX(1)
+                }
+            }
+            @keyframes rise {
+                from {
+                    opacity: 0;
+                    transform: translateY(14px)
+                }
+                to {
+                    opacity: 1;
+                    transform: none
+                }
+            }
+            @keyframes drop {
+                from {
+                    transform: translateY(-130%)
+                }
+                to {
+                    transform: none
+                }
+            }
+        }
+        
+        @media (max-width:1023px) {
+             :root {
+                --pad: 32px
+            }
+            main {
+                padding-top: 12vh
+            }
+        }
+        
+        @media (max-width:767px) {
+             :root {
+                --pad: 20px
+            }
+            .brand {
+                font-size: 17px
+            }
+            .brand span {
+                display: none
+            }
+            main {
+                padding-bottom: 40px
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="glow" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
 
-<div class="lamp" id="lamp">
-  <div class="swing" id="swing"><div class="drop"><div class="scale">
-    <svg class="lampsvg" viewBox="-120 0 240 220" aria-hidden="true" focusable="false">
-      <defs>
-        <linearGradient id="cone" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#F4F0EB" stop-opacity=".22"/><stop offset="1" stop-color="#F4F0EB" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#E447B3"/>
-        </linearGradient>
-        <radialGradient id="halo">
-          <stop offset="0" stop-color="#FFF3DF" stop-opacity=".85"/>
-          <stop offset=".35" stop-color="#E447B3" stop-opacity=".22"/>
-          <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <g style="opacity:var(--lit)">
-        <polygon points="-46,198 46,198 430,1300 -430,1300" fill="url(#cone)"/>
-        <circle cx="0" cy="202" r="110" fill="url(#halo)"/>
-      </g>
-      <line x1="0" y1="-30" x2="0" y2="136" stroke="#30303A" stroke-width="1.5"/>
-      <path d="M-58 196 C-58 158 -32 136 0 136 C32 136 58 158 58 196 Z" fill="#14141B" stroke="#30303A"/>
-      <rect x="-58" y="195" width="116" height="1.5" fill="url(#rim)"/>
-      <ellipse cx="0" cy="200" rx="20" ry="7" fill="#F4F0EB" style="opacity:calc(.22 + .78 * var(--lit))"/>
-    </svg>
-    <button class="lamp-btn" id="lampbtn" type="button" aria-label="Encender la luz"></button>
-  </div></div></div>
-</div>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F0EB" stop-opacity=".22"/><stop offset="1" stop-color="#F4F0EB" stop-opacity="0"/></linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#E447B3"/></linearGradient>
+  <radialGradient id="halo"><stop offset="0" stop-color="#FFF3DF" stop-opacity=".8"/><stop offset=".35" stop-color="#E447B3" stop-opacity=".2"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></radialGradient>
+</defs></svg>
 
-<div class="page">
-  <header><div class="brand" aria-label="NOOVA Designs">NOOVA<span>DESIGNS</span></div></header>
+    <div class="lamp" id="lamp">
+        <!-- Riel de focos que convergen en el cursor -->
+        <div class="fx fx-riel">
+            <div class="rail" id="rail"></div>
+            <div class="swing" data-off="-2">
+                <div class="scale"><svg class="fxsvg" style="left:-60px;width:120px;height:90px" viewBox="-60 0 120 90" aria-hidden="true" focusable="false"><g class="spot-art"></g></svg></div>
+            </div>
+            <div class="swing" data-off="-1">
+                <div class="scale"><svg class="fxsvg" style="left:-60px;width:120px;height:90px" viewBox="-60 0 120 90" aria-hidden="true" focusable="false"><g class="spot-art"></g></svg></div>
+            </div>
+            <div class="swing" data-off="0">
+                <div class="scale"><svg class="fxsvg" style="left:-60px;width:120px;height:90px" viewBox="-60 0 120 90" aria-hidden="true" focusable="false"><g class="spot-art"></g></svg>
+                    <button class="lamp-btn" type="button" style="left:-32px;top:6px;width:64px;height:60px" aria-label="Encender la luz"></button></div>
+            </div>
+            <div class="swing" data-off="1">
+                <div class="scale"><svg class="fxsvg" style="left:-60px;width:120px;height:90px" viewBox="-60 0 120 90" aria-hidden="true" focusable="false"><g class="spot-art"></g></svg></div>
+            </div>
+            <div class="swing" data-off="2">
+                <div class="scale"><svg class="fxsvg" style="left:-60px;width:120px;height:90px" viewBox="-60 0 120 90" aria-hidden="true" focusable="false"><g class="spot-art"></g></svg></div>
+            </div>
+        </div>
+    </div>
 
-  <main>
-    <h1 id="titular">Estamos construyendo nuestro nuevo espacio.</h1>
-    <p class="lead">Pronto descubrirás cómo integramos diseño, iluminación y tecnología para transformar tu hogar en un lugar con identidad, confort y estilo.</p>
-    <nav class="social" aria-label="Redes sociales">
-      <a href="https://web.facebook.com/noovadomoticaeiluminacioninteligente" target="_blank" rel="noopener noreferrer" aria-label="Facebook de NOOVA (se abre en una pestaña nueva)">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg>
-        Facebook
-      </a>
-      <a href="https://www.instagram.com/noova.domotica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de NOOVA (se abre en una pestaña nueva)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
-        Instagram
-      </a>
-    </nav>
-    <!-- Contacto: activar cuando el número esté confirmado
-    <a href="https://wa.me/57XXXXXXXXXX?text=Hola%2C%20NOOVA.">Conversemos sobre tu espacio</a> -->
-  </main>
+    <div class="page">
+        <header>
+            <div class="brand" aria-label="NOOVA Designs">NOOVA<span>DESIGNS</span></div>
+        </header>
 
-  <footer>
-    <div class="line" aria-hidden="true"></div>
-    <p><strong>NOOVA DESIGNS</strong> — Diseñamos espacios que se ven y se sienten diferentes.</p>
-    <p class="credit">© Vanmartc Developments</p>
-  </footer>
-</div>
+        <main>
+            <h1 id="titular">Estamos construyendo nuestro nuevo espacio.</h1>
+            <p class="lead">Pronto descubrirás cómo integramos diseño, iluminación y tecnología para transformar tu hogar en un lugar con identidad, confort y estilo.</p>
+            <nav class="social" aria-label="Redes sociales">
+                <a href="https://web.facebook.com/noovadomoticaeiluminacioninteligente" target="_blank" rel="noopener noreferrer" aria-label="Facebook de NOOVA (se abre en una pestaña nueva)">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg> Facebook
+                </a>
+                <a href="https://www.instagram.com/noova.domotica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de NOOVA (se abre en una pestaña nueva)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>                    Instagram
+                </a>
+            </nav>
+        </main>
 
-<script>
-(function(){
-  var root=document.documentElement, h1=document.getElementById('titular');
-  var swing=document.getElementById('swing'), lamp=document.getElementById('lamp'), btn=document.getElementById('lampbtn');
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var w=innerWidth,h=innerHeight,lx=w*.5;
-  var tx=w*.55,ty=h*.6,cx=tx,cy=ty,ang=0,vel=0,lastMove=-1e9,raf=null,touched=false;
+        <footer>
+            <div class="line" aria-hidden="true"></div>
+            <p><strong>NOOVA DESIGNS</strong> — Diseñamos espacios que se ven y se sienten diferentes.</p>
+            <p class="credit">© Vanmartc Developments</p>
+        </footer>
+    </div>
 
-  function layout(){
-    w=innerWidth;h=innerHeight;
-    lx=w>=1024?w*.46:(w>=768?w*.5:w*.72);
-    lamp.style.left=lx+'px';
-    root.style.setProperty('--s',w<768?'.8':'1');
-  }
-  layout(); addEventListener('resize',layout);
-  addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;lastMove=performance.now();start();},{passive:true});
+    <script>
+        (function() {
+            var root = document.documentElement,
+                h1 = document.getElementById('titular'),
+                lamp = document.getElementById('lamp'),
+                rail = document.getElementById('rail');
+            var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var SPOT = '<g style="opacity:var(--lit)"><polygon points="-9,58 9,58 -95,1100 95,1100" fill="url(#cone)"/><circle cx="0" cy="60" r="44" fill="url(#halo)"/></g>' +
+                '<line x1="0" y1="0" x2="0" y2="14" stroke="#30303A" stroke-width="2"/><rect x="-12" y="12" width="24" height="44" rx="5" fill="#14141B" stroke="#30303A"/>' +
+                '<rect x="-12" y="54" width="24" height="1.6" fill="url(#rim)"/><ellipse cx="0" cy="58" rx="9" ry="3" fill="#F4F0EB" style="opacity:calc(.2 + .8 * var(--lit))"/>';
+            [].forEach.call(document.querySelectorAll('.spot-art'), function(g) {
+                g.innerHTML = SPOT;
+            });
 
-  function setLabel(){btn.setAttribute('aria-label',root.classList.contains('off')?'Encender la luz':'Apagar la luz');}
-  setLabel();
-  btn.addEventListener('click',function(){touched=true;root.classList.toggle('off');setLabel();});
-  // Encendido automático al terminar la entrada, para que nadie se quede a oscuras
-  if(root.classList.contains('off')) setTimeout(function(){
-    if(!touched){root.classList.remove('off');setLabel();}
-  },1700);
+            var fx = [],
+                center = 0;
+            var w = innerWidth,
+                h = innerHeight,
+                lx = w * .5,
+                sp = 0;
+            var tx = w * .55,
+                ty = h * .6,
+                cx = tx,
+                cy = ty,
+                lastMove = -1e9,
+                raf = null,
+                touched = false;
 
-  function frame(t){
-    // Sin interacción reciente, la lámpara se balancea sola y despacio
-    if(!reduce && t-lastMove>3500){
-      tx=lx+w*.30*Math.sin(t/4200);
-      ty=h*(.62+.10*Math.sin(t/5600+1));
-    }
-    cx+=(tx-cx)*.08; cy+=(ty-cy)*.08;
-    var want=Math.atan2(cx-lx,Math.max(cy,h*.25));
-    want=Math.max(-.6,Math.min(.6,want));
-    if(reduce){ang+=(want-ang)*.2;vel=0;}
-    else{vel=(vel+(want-ang)*.010)*.93;ang+=vel;}      // péndulo con inercia
-    swing.style.transform='rotate('+(-ang)+'rad)';
-    var d=Math.max(h*.4,Math.min(h*.95,Math.hypot(cx-lx,cy)));
-    var px=lx+d*Math.sin(ang), py=d*Math.cos(ang);       // dónde cae la luz
-    root.style.setProperty('--x',px+'px'); root.style.setProperty('--y',py+'px');
-    var r=h1.getBoundingClientRect();
-    root.style.setProperty('--hx',(px-r.left)+'px'); root.style.setProperty('--hy',(py-r.top)+'px');
-    var settled=Math.abs(want-ang)<.002&&Math.abs(vel)<.0005&&Math.abs(tx-cx)<.5&&Math.abs(ty-cy)<.5;
-    raf=(reduce&&settled)?null:requestAnimationFrame(frame);
-  }
-  function start(){if(!raf)raf=requestAnimationFrame(frame);}
-  document.addEventListener('visibilitychange',function(){
-    if(document.hidden&&raf){cancelAnimationFrame(raf);raf=null;} else start();
-  });
-  start();
-})();
-</script>
+            function collect() {
+                fx = [].map.call(document.querySelectorAll('.fx-riel .swing'), function(el, i) {
+                    return {
+                        el: el,
+                        off: +el.getAttribute('data-off') || 0,
+                        ang: 0,
+                        vel: 0,
+                        k: .010 + i * .0013
+                    };
+                });
+                center = 0;
+                fx.forEach(function(f, i) {
+                    if (f.off === 0) center = i;
+                });
+            }
+
+            function layout() {
+                w = innerWidth;
+                h = innerHeight;
+                var m = w < 768;
+                lx = w * .5;
+                lamp.style.left = lx + 'px';
+                root.style.setProperty('--s', m ? '.8' : '1');
+                sp = m ? 58 : 104;
+                fx.forEach(function(f) {
+                    f.el.style.left = (f.off * sp) + 'px';
+                });
+                rail.style.left = -(2 * sp + 44) + 'px';
+                rail.style.width = (4 * sp + 88) + 'px';
+            }
+
+            var btns = [].slice.call(document.querySelectorAll('.lamp-btn'));
+
+            function setLabel() {
+                var t = root.classList.contains('off') ? 'Encender la luz' : 'Apagar la luz';
+                btns.forEach(function(b) {
+                    b.setAttribute('aria-label', t);
+                });
+            }
+            btns.forEach(function(b) {
+                b.addEventListener('click', function() {
+                    touched = true;
+                    root.classList.toggle('off');
+                    setLabel();
+                });
+            });
+            setLabel();
+            if (root.classList.contains('off')) setTimeout(function() {
+                if (!touched) {
+                    root.classList.remove('off');
+                    setLabel();
+                }
+            }, 1700);
+
+            addEventListener('resize', layout);
+            addEventListener('pointermove', function(e) {
+                tx = e.clientX;
+                ty = e.clientY;
+                lastMove = performance.now();
+                start();
+            }, {
+                passive: true
+            });
+
+            function frame(t) {
+                if (!reduce && t - lastMove > 3500) {
+                    tx = lx + w * .30 * Math.sin(t / 4200);
+                    ty = h * (.62 + .10 * Math.sin(t / 5600 + 1));
+                }
+                cx += (tx - cx) * .08;
+                cy += (ty - cy) * .08;
+                var settled = Math.abs(tx - cx) < .5 && Math.abs(ty - cy) < .5;
+                fx.forEach(function(f) {
+                    var fl = lx + f.off * sp;
+                    var want = Math.max(-.6, Math.min(.6, Math.atan2(cx - fl, Math.max(cy, h * .25))));
+                    if (reduce) {
+                        f.ang += (want - f.ang) * .2;
+                        f.vel = 0;
+                    } else {
+                        f.vel = (f.vel + (want - f.ang) * f.k) * .93;
+                        f.ang += f.vel;
+                    }
+                    f.el.style.transform = 'rotate(' + (-f.ang) + 'rad)';
+                    if (Math.abs(want - f.ang) > .002 || Math.abs(f.vel) > .0005) settled = false;
+                });
+                var c = fx[center];
+                var d = Math.max(h * .4, Math.min(h * .95, Math.hypot(cx - lx, cy)));
+                var px = lx + d * Math.sin(c.ang),
+                    py = d * Math.cos(c.ang);
+                root.style.setProperty('--x', px + 'px');
+                root.style.setProperty('--y', py + 'px');
+                var r = h1.getBoundingClientRect();
+                root.style.setProperty('--hx', (px - r.left) + 'px');
+                root.style.setProperty('--hy', (py - r.top) + 'px');
+                raf = (reduce && settled) ? null : requestAnimationFrame(frame);
+            }
+
+            function start() {
+                if (!raf) raf = requestAnimationFrame(frame);
+            }
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden && raf) {
+                    cancelAnimationFrame(raf);
+                    raf = null;
+                } else start();
+            });
+
+            collect();
+            layout();
+            start();
+        })();
+    </script>
 </body>
+
 </html>
