@@ -45,7 +45,7 @@ const GALLERY = {
         { src: 'assets/video/Vestier.mp4', poster: 'https://picsum.photos/seed/noova-vid-01/1600/1000', title: 'Proyecto Sala Muestra', caption: 'Video real con iluminación arquitectónica' },
         { src: 'assets/video/Tienda de Ropa.mp4', poster: 'https://picsum.photos/seed/noova-vid-02/1600/1000', title: 'Sala Pixel', caption: 'Iluminación escénica programable' },
         { src: 'assets/video/Sala2.mp4', poster: 'https://picsum.photos/seed/noova-vid-03/1600/1000', title: 'Entrada espacio interior', caption: 'Acceso a proyecto real' },
-        { src: 'assets/video/Habitación niña.mp4', poster: 'https://picsum.photos/seed/noova-vid-04/1600/1000', title: 'Sala Pixel · segunda toma', caption: 'Proyecto de iluminación' },
+        { src: 'assets/video/HabitaciónNina.mp4', poster: 'https://picsum.photos/seed/noova-vid-04/1600/1000', title: 'Sala Pixel · segunda toma', caption: 'Proyecto de iluminación' },
         { src: 'assets/video/Gym.mp4', poster: 'https://picsum.photos/seed/noova-vid-05/1600/1000', title: 'Proyecto de cliente', caption: 'Integración de tecnología y luz' },
         { src: 'assets/video/Gimnasio.mp4', poster: 'https://picsum.photos/seed/noova-vid-06/1600/1000', title: 'Entrada interior II', caption: 'Espacio integrado con domótica' },
         { src: 'assets/video/Comedor.mp4', poster: 'https://picsum.photos/seed/noova-vid-07/1600/1000', title: 'Entrada interior III', caption: 'Diseño de iluminación arquitectónica' },
@@ -56,7 +56,7 @@ const GALLERY = {
         { src: 'assets/video/techo_tv.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' },
         { src: 'assets/video/techo_tv2.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' },
         { src: 'assets/video/iluminacion y controles.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' },
-        { src: 'assets/video/sala.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' }
+        { src: 'assets/video/Sala.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' }
     ]
 };
 
