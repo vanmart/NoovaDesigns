@@ -21,42 +21,42 @@ const CONFIG = {
 const GALLERY = {
     images: [
 
-        { src: 'assets/img/cafeteria.webp', title: 'Coworking', caption: 'Iluminación perfecta para jornadas productivas' },
-        { src: 'assets/img/proy2.webp', title: 'Sala de estar y TV', caption: 'Iluminación arquitectónica y escenas' },
-        { src: 'assets/img/proy3.webp', title: 'Sala de estar y TV', caption: 'Luz Calida para dar más tranquilidad a tu hogar' },
-        { src: 'assets/img/arte.webp', title: 'Iluminacion & Arte', caption: 'Iluminación de arte y escenas' },
-        { src: 'assets/img/SalaColor.webp', title: 'Entrada', caption: 'Listos para un evento o reunion.' },
+        { src: 'assets/img/cafeteria.webp', title: 'Un coworking que inspira', caption: 'Luz cómoda para rendir todo el día sin cansarte' },
+        { src: 'assets/img/proy2.webp', title: 'Tu rincón para desconectarte', caption: 'Cada noche en casa se siente como un plan especial' },
+        { src: 'assets/img/proy3.webp', title: 'Un hogar que abraza', caption: 'Luz cálida para bajar el ritmo y estar en paz' },
+        { src: 'assets/img/arte.webp', title: 'Tu arte merece brillar', caption: 'Cada obra luce como en una galería' },
+        { src: 'assets/img/SalaColor.webp', title: 'Siempre listo para recibir', caption: 'Tu casa preparada para cualquier reunión o celebración' },
 
-        { src: 'assets/img/bano1.webp', title: 'Baños', caption: 'Acabados de lujo revalorizan tu predio' },
-        { src: 'assets/img/bano.webp', title: 'Baños', caption: 'Armonia donde menos lo imaginas' },
-        { src: 'assets/img/closet1.webp', title: 'Closet', caption: 'Puede hacerte sentir muy bien' },
-        { src: 'assets/img/closet2.webp', title: 'Closet', caption: 'Vive de maneras unicas' },
+        { src: 'assets/img/bano1.webp', title: 'Un baño de hotel en casa', caption: 'Detalles de lujo que además valorizan tu propiedad' },
+        { src: 'assets/img/bano.webp', title: 'Calma donde menos lo esperas', caption: 'Un baño que te relaja desde que entras' },
+        { src: 'assets/img/closet1.webp', title: 'Vestirte se vuelve un placer', caption: 'Encuentra todo a la primera, sin buscar a oscuras' },
+        { src: 'assets/img/closet2.webp', title: 'Tu vestier de boutique', caption: 'Tu ropa luce como en una tienda exclusiva' },
 
-        { src: 'assets/img/Oxigen.webp', title: 'Local Comercial', caption: 'Dale nueva vida a tu espacio' },
-        { src: 'assets/img/Oxygen2.webp', title: 'Local Comercial', caption: 'Renovar no siempre es complicado' },
-        { src: 'assets/img/Oxygen3.webp', title: 'Local Comercial', caption: 'Consejos para tu espacio comercial' },
+        { src: 'assets/img/Oxigen.webp', title: 'Un local que se hace notar', caption: 'Dale nueva vida a tu negocio y atrae más clientes' },
+        { src: 'assets/img/Oxygen2.webp', title: 'Renovar sin complicaciones', caption: 'Un gran cambio, sin dolores de cabeza' },
+        { src: 'assets/img/Oxygen3.webp', title: 'Clientes que quieren quedarse', caption: 'Un espacio cómodo que invita a volver' },
 
-        { src: 'assets/img/tiendaOriginal.webp', title: 'Local Comercial', caption: 'Detalles que dan identidad' },
-        { src: 'assets/img/tiendaOriginal2.webp', title: 'Local Comercial', caption: 'Resaltan tus productos, resaltas tú' },
-        { src: 'assets/img/tv_room.webp', title: 'Sala de estar y TV', caption: 'Escenas para descansar' }
-        // 
+        { src: 'assets/img/tiendaOriginal.webp', title: 'Una tienda con personalidad', caption: 'Detalles que hacen tu marca inolvidable' },
+        { src: 'assets/img/tiendaOriginal2.webp', title: 'Tus productos, protagonistas', caption: 'Cuando tus productos resaltan, tu marca también' },
+        { src: 'assets/img/tv_room.webp', title: 'Noches para descansar', caption: 'Con un toque, todo listo para tu película' }
+        //
     ],
     videos: [
-        { src: 'assets/video/Vestier.mp4', poster: 'https://picsum.photos/seed/noova-vid-01/1600/1000', title: 'Proyecto Sala Muestra', caption: 'Video real con iluminación arquitectónica' },
-        { src: 'assets/video/Tienda de Ropa.mp4', poster: 'https://picsum.photos/seed/noova-vid-02/1600/1000', title: 'Sala Pixel', caption: 'Iluminación escénica programable' },
-        { src: 'assets/video/Sala2.mp4', poster: 'https://picsum.photos/seed/noova-vid-03/1600/1000', title: 'Entrada espacio interior', caption: 'Acceso a proyecto real' },
-        { src: 'assets/video/Nina.mp4', poster: 'https://picsum.photos/seed/noova-vid-04/1600/1000', title: 'Sala Pixel · segunda toma', caption: 'Proyecto de iluminación' },
-        { src: 'assets/video/Gym.mp4', poster: 'https://picsum.photos/seed/noova-vid-05/1600/1000', title: 'Proyecto de cliente', caption: 'Integración de tecnología y luz' },
-        { src: 'assets/video/Gimnasio.mp4', poster: 'https://picsum.photos/seed/noova-vid-06/1600/1000', title: 'Entrada interior II', caption: 'Espacio integrado con domótica' },
-        { src: 'assets/video/Comedor.mp4', poster: 'https://picsum.photos/seed/noova-vid-07/1600/1000', title: 'Entrada interior III', caption: 'Diseño de iluminación arquitectónica' },
-        { src: 'assets/video/Cocina.mp4', poster: 'https://picsum.photos/seed/noova-vid-08/1600/1000', title: 'Sala principal', caption: 'Proyecto con iluminación escénica' },
-        { src: 'assets/video/piscina2.mp4', poster: 'https://picsum.photos/seed/noova-vid-09/1600/1000', title: 'Luxury loop', caption: 'Video de lujo con iluminación' },
-        { src: 'assets/video/Bano.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' },
-        { src: 'assets/video/Bano1.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' },
-        { src: 'assets/video/techo_tv.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' },
-        { src: 'assets/video/techo_tv2.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' },
-        { src: 'assets/video/iluminacion y controles.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' },
-        { src: 'assets/video/Sala.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Iluminación y controles', caption: 'Automatización y control de escenas' }
+        { src: 'assets/video/Vestier.mp4', poster: 'https://picsum.photos/seed/noova-vid-01/1600/1000', title: 'Un vestier que te consiente', caption: 'Encuentra todo a la primera, como en una boutique' },
+        { src: 'assets/video/Tienda de Ropa.mp4', poster: 'https://picsum.photos/seed/noova-vid-02/1600/1000', title: 'Tienda de ropa exclusiva', caption: 'Moda de lujo que brilla y enamora a cada cliente' },
+        { src: 'assets/video/Sala2.mp4', poster: 'https://picsum.photos/seed/noova-vid-03/1600/1000', title: 'Llegar a casa y por fin descansar', caption: 'Un ambiente cálido que te recibe al final del día' },
+        { src: 'assets/video/Nina.mp4', poster: 'https://picsum.photos/seed/noova-vid-04/1600/1000', title: 'Un cuarto para soñar', caption: 'Luz suave para dormir tranquilos y despertar felices' },
+        { src: 'assets/video/Gym.mp4', poster: 'https://picsum.photos/seed/noova-vid-05/1600/1000', title: 'Imposible pasar sin mirar', caption: 'Una fachada que invita a entrar, incluso de noche' },
+        { src: 'assets/video/Gimnasio.mp4', poster: 'https://picsum.photos/seed/noova-vid-06/1600/1000', title: 'Ganas de entrenar desde que entras', caption: 'Energía en cada rincón para que tus clientes se queden' },
+        { src: 'assets/video/Comedor.mp4', poster: 'https://picsum.photos/seed/noova-vid-07/1600/1000', title: 'Un comedor para compartir', caption: 'Cenas cálidas que invitan a quedarse en la mesa' },
+        { src: 'assets/video/Cocina.mp4', poster: 'https://picsum.photos/seed/noova-vid-08/1600/1000', title: 'El lugar favorito para reunirse', caption: 'Donde las conversaciones se alargan sin darte cuenta' },
+        { src: 'assets/video/piscina2.mp4', poster: 'https://picsum.photos/seed/noova-vid-09/1600/1000', title: 'Noches que se sienten de vacaciones', caption: 'Tu casa con ese aire de hotel que tanto disfrutas' },
+        { src: 'assets/video/Bano.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Todo listo con un toque', caption: 'Sin buscar interruptores ni tropezar a oscuras' },
+        { src: 'assets/video/Bano1.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Tu momento de calma', caption: 'Empezar y terminar el día en un espacio que relaja' },
+        { src: 'assets/video/techo_tv.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Diseño que se nota', caption: 'Detalles que hacen que todos pregunten quién lo hizo' },
+        { src: 'assets/video/techo_tv2.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Un hogar que impresiona', caption: 'Espacios grandes que, por fin, se sienten acogedores' },
+        { src: 'assets/video/iluminacion y controles.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Como estar dentro de la película', caption: 'Noches de cine y juegos que nadie quiere terminar' },
+        { src: 'assets/video/Sala.mp4', poster: 'https://picsum.photos/seed/noova-vid-10/1600/1000', title: 'Tu casa obedece a tu voz', caption: 'Pide “modo película” y todo se ajusta solo' }
     ]
 };
 
