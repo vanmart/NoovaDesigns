@@ -388,30 +388,6 @@ const GALLERY = {
         else el.hidden = true;
     });
 
-    /* ---------- Formulario ---------- */
-    const form = $('#citaForm'),
-        err = $('#formErr');
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const d = new FormData(form),
-            nombre = (d.get('nombre') || '').trim(),
-            ciudad = (d.get('ciudad') || '').trim(),
-            tipo = d.get('tipo'),
-            hor = (d.get('horario') || '').trim();
-        if (!nombre || !ciudad || !tipo) {
-            err.textContent = 'Completa nombre, ciudad y tipo de proyecto.';
-            err.hidden = false;
-            return;
-        }
-        if (pending(CONFIG.whatsapp)) {
-            err.textContent = 'El número de WhatsApp de NOOVA aún está pendiente de configurar.';
-            err.hidden = false;
-            return;
-        }
-        err.hidden = true;
-        window.open(waUrl('Soy ' + nombre + ', estoy en ' + ciudad + ' y me interesa contratar para: ' + tipo + '.' + (hor ? ' Horario preferido: ' + hor + '.' : '')), '_blank', 'noopener');
-    });
-
     /* ---------- RIEL DE LUCES ---------- */
     const hero = $('#inicio'),
         h1 = $('#titular'),

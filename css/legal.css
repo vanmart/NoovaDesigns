@@ -30,10 +30,6 @@ mark.ph{background:rgba(var(--violet-rgb),.22);color:var(--text);padding:1px 6px
 .legal-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin-top:24px}
 .legal-links a{color:var(--text-2);text-decoration:none;font-size:14px;padding:8px 0;transition:color .2s}
 .legal-links a:hover{color:var(--gold-lt)}
-/* Nota de consentimiento bajo el formulario */
-.form-note{margin-top:14px;font-size:13.5px;line-height:1.55;color:var(--dim);text-align:center}
-.form-note a{color:var(--text-2);text-underline-offset:3px}
-.form-note a:hover{color:var(--gold-lt)}
 @media (max-width:767px){.legal-page main{padding-top:calc(var(--hh) + 32px)}.legal section{margin-top:36px}}
 
 /* ===== Aviso de cookies ===== */

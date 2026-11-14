@@ -1381,40 +1381,20 @@ details p {
     background: radial-gradient(800px circle at 50% 0, rgba(173, 72, 250, .10), transparent 70%)
 }
 
-.form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+.btn-whatsapp {
+    width: min(100%, 520px);
+    min-height: 100px;
     margin-top: 40px;
-    text-align: left
+    padding: 18px 36px;
+    gap: 16px;
+    font-size: clamp(20px, 3vw, 29px);
+    letter-spacing: .03em
 }
 
-.form label {
-    display: grid;
-    gap: 8px;
-    color: var(--text-2);
-    font-size: 14px
-}
-
-.form input,
-.form select {
-    min-height: 48px;
-    padding: 0 14px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-    font: inherit
-}
-
-.form .btn,
-.err {
-    grid-column: 1/-1
-}
-
-.err {
-    color: #F2B8A6;
-    font-size: 14px
+.btn-whatsapp svg {
+    width: 32px;
+    height: 32px;
+    flex: none
 }
 
 
@@ -1676,8 +1656,7 @@ details p {
     .g2,
     .g3,
     .g4,
-    .split,
-    .form {
+    .split {
         grid-template-columns: 1fr
     }
     .hero-copy {
