@@ -1,0 +1,21 @@
+{
+  "name": "NOOVA Designs | Iluminación y Automatización",
+  "short_name": "NOOVA",
+  "description": "Diseño de iluminación arquitectónica, domótica y automatización de espacios.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#08080B",
+  "background_color": "#08080B",
+  "display": "standalone",
+  "start_url": "/"
+}
